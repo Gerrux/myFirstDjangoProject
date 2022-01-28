@@ -3,6 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
+    path('<int:month>/<int:day>/', views.get_info_by_date),
+    path('<int:month>/<int:day>', views.get_info_by_date),
     path('type', views.elements_zodiac),
     path('type/', views.elements_zodiac),
     path('type/<str:element>/', views.get_list_signs_zodiac, name='zodiac-element'),
