@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.template.loader import render_to_string
 from django.urls import reverse
 from datetime import date
 
@@ -92,6 +93,10 @@ def index(request):
     """
     return HttpResponse(response)
 
+
+def hello_world(request):
+    response = render_to_string("horoscope/info_zodiac.html")
+    return HttpResponse(response)
 
 def elements_zodiac(request):
     li_elements = ""
