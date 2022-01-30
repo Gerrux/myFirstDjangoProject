@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ sign }}</title>
+    <title>{{ sign|title }}</title>
 </head>
 <body>
     <h1>Приложение Гороскоп!</h1>
-    <h3>{{ description_zodiac }}</h3>
+    {% if description_zodiac is None %}
+        <h3>Неверный знак зодиака - {{ sign|upper }}</h3>
+    {% else %}
+        <h3>{{ description_zodiac }}</h3>
+    {% endif %}
 </body>
 </html>

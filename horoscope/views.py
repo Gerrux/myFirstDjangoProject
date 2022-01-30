@@ -127,10 +127,10 @@ def get_list_signs_zodiac(request, element: str):
 
 def get_info_about_sign_zodiac(request, sign_zodiac: str):
     sign = zodiac_dict.get(sign_zodiac, None)
-    description = sign['description']
-    if description:
+    if sign:
+        description = sign['description']
         data = {
-            'sign': sign_zodiac.title(),
+            'sign': sign_zodiac,
             'description_zodiac': description
         }
         return render(request, 'horoscope/info_zodiac.html', context=data)
