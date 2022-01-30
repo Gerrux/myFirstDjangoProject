@@ -26,6 +26,10 @@ def index(request):
     return HttpResponse(response)
 
 
+def greeting(request):
+    return render(request, 'todo_week/greeting.html')
+
+
 def get_info_about_todo_week(request, week_day: str):
     description = week.get(week_day, None)
     if description:

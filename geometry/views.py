@@ -4,6 +4,18 @@ from django.urls import reverse
 # Create your views here.
 
 
+def rectangle_index(request):
+    return render(request, "geometry/rectangle.html")
+
+
+def square_index(request):
+    return render(request, "geometry/square.html")
+
+
+def circle_index(request):
+    return render(request, "geometry/circle.html")
+
+
 def get_rectangle_area(request, width: int, height: int):
     return HttpResponse(f"Площадь прямоугольника размером {width}х{height} равна {width*height}.")
 

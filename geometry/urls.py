@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path("rectangle", views.rectangle_index),
+    path("square", views.square_index),
+    path("circle", views.circle_index),
     path("rectangle/<int:width>/<int:height>", views.get_rectangle_area, name='get-rectangle-area'),
     path("rectangle/<int:width>/<int:height>/", views.get_rectangle_area, name='get-rectangle-area'),
     path("square/<int:width>", views.get_square_area, name='get-square-area'),
