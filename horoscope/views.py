@@ -94,10 +94,6 @@ def index(request):
     return HttpResponse(response)
 
 
-def hello_world(request):
-    response = render_to_string("horoscope/info_zodiac.html")
-    return HttpResponse(response)
-
 def elements_zodiac(request):
     li_elements = ""
     elements = []
@@ -133,7 +129,11 @@ def get_info_about_sign_zodiac(request, sign_zodiac: str):
     sign = zodiac_dict.get(sign_zodiac, None)
     description = sign['description']
     if description:
-        return HttpResponse(f"<h2>{description}</h2>")
+        data = {
+            'sign': sign_zodiac.title(),
+            'description_zodiac': description
+        }
+        return render(request, 'horoscope/info_zodiac.html', context=data)
     else:
         return HttpResponseNotFound(f"{sign_zodiac} - не найден.")
 
