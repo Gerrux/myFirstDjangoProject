@@ -14,16 +14,11 @@ week = {
 
 
 def index(request):
-    li_elements = ""
-    for day in list(week):
-        redirect_url = reverse('todo-week-url', args=(day,))
-        li_elements += f"<li><a href='{redirect_url}'>{day.title()}</a></li>"
-    response = f"""
-    <ol>
-    {li_elements}
-    </ol>
-    """
-    return HttpResponse(response)
+    days = list(week)
+    context = {
+        'days': days
+    }
+    return render(request, 'todo_week/index.html', context=context)
 
 
 def greeting(request):

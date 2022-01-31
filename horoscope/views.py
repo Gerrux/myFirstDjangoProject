@@ -90,34 +90,25 @@ def index(request):
 
 
 def elements_zodiac(request):
-    li_elements = ""
     elements = []
     for sign in list(zodiac_dict):
         elements.append(zodiac_dict[sign]['element'])
-    elements = set(elements)
-    for element in elements:
-        redirect_url = reverse('zodiac-element', args=(element,))
-        li_elements += f"<li><a href='{redirect_url}'>{element.title()}</a></li>"
-    response = f"""
-        <ol>
-        {li_elements}
-        </ol>
-        """
-    return HttpResponse(response)
+    context = {
+        'elements': set(elements)
+    }
+    return render(request, 'horoscope/elements.html', context=context)
 
 
 def get_list_signs_zodiac(request, element: str):
-    li_elements = ""
+    zodiacs = []
     for sign in list(zodiac_dict):
         if zodiac_dict[sign]['element'] == element:
-            redirect_url = reverse('zodiac-name', args=(sign,))
-            li_elements += f"<li><a href='{redirect_url}'>{sign.title()}</a></li>"
-    response = f"""
-        <ol>
-        {li_elements}
-        </ol>
-        """
-    return HttpResponse(response)
+            zodiacs.append(sign)
+    context = {
+        'element': element,
+        'zodiacs': zodiacs
+    }
+    return render(request, 'horoscope/element.html', context=context)
 
 
 def get_info_about_sign_zodiac(request, sign_zodiac: str):
