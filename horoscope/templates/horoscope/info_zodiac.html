@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ sign|title }}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}{{ sign|title }}{% endblock %}
+{% block content %}
     <h1>Приложение Гороскоп!</h1>
     {% if description_zodiac is None %}
         <h3>Неверный знак зодиака - {{ sign|upper }}</h3>
     {% else %}
         <h3>{{ description_zodiac }}</h3>
     {% endif %}
-</body>
-</html>
+{% endblock %}

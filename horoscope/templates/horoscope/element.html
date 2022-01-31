@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ element|title }}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}{{ element|title }}{% endblock %}
+{% block content %}
     <ul>
         {% for zodiac in zodiacs %}
             <li><a href="{% url 'zodiac-name' zodiac %}">{{ zodiac|title }}</a></li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
