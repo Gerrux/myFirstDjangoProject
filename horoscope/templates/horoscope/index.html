@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Приложение Гороскоп</title>
+</head>
+<body>
+    <ol>
+        {% for zodiac in zodiacs %}
+            <li><a href="{% url 'zodiac-name' sign_zodiac=zodiac %}">{{ zodiac|title }}</a></li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
