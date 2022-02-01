@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}{{ sign|title }}{% endblock %}
 {% block content %}
+    {% include 'includes/navbar.html' only %}
     <h1>Приложение Гороскоп!</h1>
     {% if description_zodiac is None %}
         <h3>Неверный знак зодиака - {{ sign|upper }}</h3>

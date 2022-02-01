@@ -1,9 +1,5 @@
 {% extends 'base.html' %}
 {% block title %}Меню{% endblock %}
 {% block content %}
-    <ol>
-        {% for zodiac in zodiacs %}
-            <li><a href="{% url 'zodiac-name' sign_zodiac=zodiac %}">{{ zodiac|title }}</a></li>
-        {% endfor %}
-    </ol>
+{% include 'includes/navbar.html' %}
 {% endblock %}
