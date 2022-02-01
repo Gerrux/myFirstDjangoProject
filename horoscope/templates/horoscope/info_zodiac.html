@@ -2,12 +2,11 @@
 {% block title %}{{ sign|title }}{% endblock %}
 {% load static %}
 {% block css_additional %}
-    <link rel="stylesheet" href="{% static 'horoscope/css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'horoscope/css/info.css' %}">
 {% endblock %}
 {% block content %}
     {% include 'includes/navbar.html' only %}
-    <h1>Приложение Гороскоп!</h1>
+    <h1>{{ sign_ru }}</h1>
     {% if description_zodiac is None %}
         <h3>Неверный знак зодиака - {{ sign|upper }}</h3>
     {% else %}

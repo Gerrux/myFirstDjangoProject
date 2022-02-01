@@ -1,0 +1,14 @@
+ol {
+    text-align: center;
+}
+li {
+    padding: 10px;
+}
+ol a {
+    color: #ffffff;
+    font-size: 30px;
+    text-decoration: none;
+}
+ol a:hover, a:active {
+    color: #eca8b5;
+}
