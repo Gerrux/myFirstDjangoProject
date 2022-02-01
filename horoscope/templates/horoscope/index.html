@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Меню{% endblock %}
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/index.css' %}">
+{% endblock %}
 {% block content %}
 {% include 'includes/navbar.html' %}
 {% endblock %}

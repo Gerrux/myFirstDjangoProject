@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/navbar.css' %}">
+    {% block css_additional %}{% endblock %}
 </head>
 <body>
     {% block content %}{% endblock %}

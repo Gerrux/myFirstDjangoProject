@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}{{ sign|title }}{% endblock %}
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/info.css' %}">
+{% endblock %}
 {% block content %}
     {% include 'includes/navbar.html' only %}
     <h1>Приложение Гороскоп!</h1>
