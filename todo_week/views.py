@@ -28,7 +28,11 @@ def greeting(request):
 def get_info_about_todo_week(request, week_day: str):
     description = week.get(week_day, None)
     if description:
-        return HttpResponse(f"<h2>Список дел в {description}.</h2>")
+        context = {
+            'day': week_day,
+            'description': f"Список дел в {description}."
+        }
+        return render(request, 'todo_week/day.html', context=context)
     else:
         return HttpResponseNotFound(f"{week_day} - не найден.")
 
