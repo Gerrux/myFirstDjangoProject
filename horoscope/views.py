@@ -82,9 +82,8 @@ zodiac_dict = {
 
 
 def index(request):
-    zodiacs = list(zodiac_dict)
     context = {
-        'zodiacs': zodiacs
+        'zodiacs': zodiac_dict
     }
     return render(request, 'horoscope/index.html', context=context)
 
